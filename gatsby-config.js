@@ -1,14 +1,14 @@
+const urljoin = require("url-join")
+const siteConfig = require("./siteConfig")
+
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Starter Blog`,
-    author: {
-      name: `Kyle Mathews`,
-      summary: `who lives and works in San Francisco building useful things.`,
-    },
-    description: `A starter blog demonstrating what Gatsby can do.`,
-    siteUrl: `https://gatsby-starter-blog-demo.netlify.app/`,
+    title: siteConfig.name,
+    author: siteConfig.author,
+    description: siteConfig.description,
+    siteUrl: urljoin(siteConfig.url, siteConfig.prefix),
     social: {
-      twitter: `kylemathews`,
+      twitter: siteConfig.twitter,
     },
   },
   plugins: [
@@ -33,7 +33,11 @@ module.exports = {
           {
             resolve: `gatsby-remark-images`,
             options: {
-              maxWidth: 590,
+              maxWidth: 1360,
+              withWebp: true,
+              showCaptions: true,
+              quality: 75,
+              wrapperStyle: `margin: 7vw 0;`,
             },
           },
           {
@@ -51,6 +55,28 @@ module.exports = {
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
+      resolve: `gatsby-plugin-postcss`,
+      options: {
+        postCssPlugins: [
+          require("postcss-easy-import")(),
+          require("postcss-custom-properties")({ preserve: false }),
+          require("postcss-color-function")(),
+          require("autoprefixer")({ browsers: ["last 2 versions"] }),
+        ],
+      },
+    },
+    {
+      resolve: `gatsby-plugin-purgecss`,
+      options: {
+        printRejected: true, // Print removed selectors and processed file names
+        // develop: true, // Enable while using `gatsby develop`
+        // tailwind: true, // Enable tailwindcss support
+        // whitelist: ['whitelist'], // Don't remove this selector
+        // ignore: ['/ignored.css', 'prismjs/', 'docsearch.js/'], // Ignore files/folders
+        // purgeOnly : ['components/', '/main.css', 'bootstrap/'], // Purge only these files/folders
+      },
+    },
+    {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
         //trackingId: `ADD YOUR TRACKING ID HERE`,
@@ -60,24 +86,17 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Gatsby Starter Blog`,
-        short_name: `GatsbyJS`,
-        start_url: `/`,
+        name: siteConfig.name,
+        short_name: siteConfig.shortName,
+        start_url: siteConfig.prefix,
         background_color: `#ffffff`,
         theme_color: `#663399`,
         display: `minimal-ui`,
         icon: `content/assets/gatsby-icon.png`,
       },
     },
+    `gatsby-plugin-netlify`,
+    `gatsby-plugin-offline`,
     `gatsby-plugin-react-helmet`,
-    {
-      resolve: `gatsby-plugin-typography`,
-      options: {
-        pathToConfigModule: `src/utils/typography`,
-      },
-    },
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.dev/offline
-    // `gatsby-plugin-offline`,
   ],
 }

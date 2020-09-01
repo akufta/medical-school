@@ -1,81 +1,57 @@
 import React from "react"
-import { Link, graphql } from "gatsby"
+import { graphql } from "gatsby"
+import Img from "gatsby-image"
 
-import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import { rhythm, scale } from "../utils/typography"
 
-const BlogPostTemplate = ({ data, pageContext, location }) => {
-  const post = data.markdownRemark
-  const siteTitle = data.site.siteMetadata.title
-  const { previous, next } = pageContext
+class BlogPostTemplate extends React.Component {
+  render() {
+    const post = this.props.data.markdownRemark
+    const siteTitle = this.props.data.site.siteMetadata.title
 
-  return (
-    <Layout location={location} title={siteTitle}>
-      <SEO
-        title={post.frontmatter.title}
-        description={post.frontmatter.description || post.excerpt}
-      />
-      <article>
-        <header>
-          <h1
-            style={{
-              marginTop: rhythm(1),
-              marginBottom: 0,
-            }}
-          >
-            {post.frontmatter.title}
-          </h1>
-          <p
-            style={{
-              ...scale(-1 / 5),
-              display: `block`,
-              marginBottom: rhythm(1),
-            }}
-          >
-            {post.frontmatter.date}
-          </p>
-        </header>
-        <section dangerouslySetInnerHTML={{ __html: post.html }} />
-        <hr
-          style={{
-            marginBottom: rhythm(1),
-          }}
+    return (
+      <Layout location={this.props.location} title={siteTitle}>
+        <SEO
+          title={post.frontmatter.title}
+          description={post.frontmatter.description || post.excerpt}
         />
-        <footer>
-          <Bio />
-        </footer>
-      </article>
-
-      <nav>
-        <ul
-          style={{
-            display: `flex`,
-            flexWrap: `wrap`,
-            justifyContent: `space-between`,
-            listStyle: `none`,
-            padding: 0,
-          }}
+        <article
+          className={`post-content ${post.frontmatter.thumbnail || `no-image`}`}
         >
-          <li>
-            {previous && (
-              <Link to={previous.fields.slug} rel="prev">
-                ← {previous.frontmatter.title}
-              </Link>
-            )}
-          </li>
-          <li>
-            {next && (
-              <Link to={next.fields.slug} rel="next">
-                {next.frontmatter.title} →
-              </Link>
-            )}
-          </li>
-        </ul>
-      </nav>
-    </Layout>
-  )
+          <header className="post-content-header">
+            <h1 className="post-content-title">{post.frontmatter.title}</h1>
+          </header>
+
+          {post.frontmatter.description && (
+            <p class="post-content-excerpt">{post.frontmatter.description}</p>
+          )}
+
+          {post.frontmatter.thumbnail && (
+            <div className="post-content-image">
+              <Img
+                className="kg-image"
+                fluid={post.frontmatter.thumbnail.childImageSharp.fluid}
+                alt={post.frontmatter.title}
+              />
+            </div>
+          )}
+
+          <div
+            className="post-content-body"
+            dangerouslySetInnerHTML={{ __html: post.html }}
+          />
+
+          <footer className="post-content-footer">
+            {/* There are two options for how we display the byline/author-info.
+        If the post has more than one author, we load a specific template
+        from includes/byline-multiple.hbs, otherwise, we just use the
+        default byline. */}
+          </footer>
+        </article>
+      </Layout>
+    )
+  }
 }
 
 export default BlogPostTemplate
@@ -85,6 +61,7 @@ export const pageQuery = graphql`
     site {
       siteMetadata {
         title
+        author
       }
     }
     markdownRemark(fields: { slug: { eq: $slug } }) {
@@ -95,6 +72,13 @@ export const pageQuery = graphql`
         title
         date(formatString: "MMMM DD, YYYY")
         description
+        thumbnail {
+          childImageSharp {
+            fluid(maxWidth: 1360) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
       }
     }
   }

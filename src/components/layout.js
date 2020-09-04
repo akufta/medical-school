@@ -53,8 +53,8 @@ const Layout = props => {
                 Facebook
               </a>
               <a
-                href="https://twitter.com"
-                title="Twitter"
+                href="https://www.linkedin.com/in/allisonkufta/"
+                title="LinkedIn"
                 target="_blank"
                 rel="noopener noreferrer"
               >

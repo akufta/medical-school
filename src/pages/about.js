@@ -13,14 +13,14 @@ const AboutPage = ({ data }, location) => {
 
   return (
     <Layout title={siteTitle}>
-      <SEO title="ABout" keywords={[`blog`, `gatsby`, `javascript`, `react`]} />
+      <SEO title="About" keywords={[`blog`, `gatsby`, `javascript`, `react`]} />
 
       <article className="post-content page-template no-image">
         <div className="post-content-body">
-          <h2 id="clean-minimal-and-deeply-customisable-london-is-a-theme-made-for-people-who-appreciate-simple-lines-">
-            Clean, minimal, and deeply customisable. London is a theme made for
-            people who appreciate simple lines.
-          </h2>
+          <h3 id="clean-minimal-and-deeply-customisable-london-is-a-theme-made-for-people-who-appreciate-simple-lines-">
+            A curious person dedicated to service, life-long learning, running,
+            and coffee.
+          </h3>
           <figure className="kg-card kg-image-card kg-width-full">
             <Img
               fluid={data.benchAccounting.childImageSharp.fluid}
@@ -28,26 +28,64 @@ const AboutPage = ({ data }, location) => {
             />
             <figcaption>Large imagery is at the heart of this theme</figcaption>
           </figure>
-          <h3 id="dynamic-styles">Dynamic styles</h3>
+
+          <h3 id="dynamic-styles">Service</h3>
           <p>
-            London comes with photo-centric main layout best suited to
-            photography, graphics portfolios and other image-heavy uses.
+            After seeing the impact the physician I shadowed had on her
+            underserved community, I realized the amount of opportunities this
+            field has for serving others.
           </p>
+
           <p>
-            Both post and page templates are light and minimal, with all the
-            focus on the content while the design of the theme gets out of the
-            way. Beneath the hood, London enjoys the full power of the{" "}
-            <a href="https://docs.ghost.org/api/handlebars-themes/">
-              Ghost Handlebars Theme API
-            </a>{" "}
-            to provide limitless customisation options and dynamic styles.
+            {" "}
+            I was adopted from China, and I know that my life could have played
+            out quite differently nad I want to pay it forward to people who
+            might not have had the same chance as I did.{" "}
           </p>
+
           <p>
-            Don't forget to check out the{" "}
-            <a href="https://docs.ghost.org/integrations/">
-              Ghost Integrations Directory
-            </a>{" "}
-            for more ways to integrate Ghost with your favourite services.
+            {" "}
+            In college, some of my most meaningful experiences were when I got
+            to be involved in the community and try to make a positive
+            difference. Particularly, my volunteer opportunity in an Adopt A
+            Grandparent Program gave me memories that I will carry with me for
+            the rest of my life. The stories I received from my adopted
+            grandparent had so much wisdom.
+          </p>
+
+          <p>
+            {" "}
+            Through its very nature, medicine is a career that will provide me
+            ample opportunities to pay it forward and make a positive impact on
+            others.{" "}
+          </p>
+
+          <h3 id="dynamic-styles"> Life-Long Learning</h3>
+          <p>
+            I commit to life-long learning, both in and out of the classroom. In
+            medicine, offers an ever evolving body of knowledge.{" "}
+          </p>
+
+          <p>
+            In fact, creating this website involved learning how to use a new
+            command line tool and templating system.{" "}
+          </p>
+
+          <p>
+            {" "}
+            For other projects, I've used the Hugo Static Site Generator, but
+            this website is created using Gatsby, which works more as a
+            progressive web app.
+          </p>
+
+          <p>
+            {" "}
+            I enjoy learning about science and medicine, but I also love
+            learning about different perspectives encapsulated by humanities
+            subjects. I have a wide range of interests, from politics, to
+            exercise (especially running) physiology/nutrition, politics, social
+            justice issues, sleep, memory, anatomical variation, open source,
+            and art techniques.{" "}
           </p>
         </div>
       </article>

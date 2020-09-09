@@ -26,7 +26,10 @@ const AboutPage = ({ data }, location) => {
               fluid={data.benchAccounting.childImageSharp.fluid}
               className="kg-image"
             />
-            <figcaption>Large imagery is at the heart of this theme</figcaption>
+            <figcaption>
+              Images that are not mine are sourced in the public domain
+              (Unsplash.com)
+            </figcaption>
           </figure>
 
           <h3 id="dynamic-styles">Service</h3>
@@ -41,6 +44,18 @@ const AboutPage = ({ data }, location) => {
             I was adopted from China, and I know that my life could have played
             out quite differently nad I want to pay it forward to people who
             might not have had the same chance as I did.{" "}
+          </p>
+
+          <p>
+            {" "}
+            I am comitted to furthering social justice in medicine and in
+            greater society. Racism is a public health crisis, evidenced by
+            significantly unequal health outcomes and racial biases that affect
+            care. For example, this AAMC article highlights disparities in how
+            we treat pain in Black pain:{" "}
+            <a href="https://www.aamc.org/news-insights/how-we-fail-black-patients-pain">
+              How we fail black patients in pain by Janice A. Sabin, PHD, MSW
+            </a>{" "}
           </p>
 
           <p>
@@ -76,6 +91,11 @@ const AboutPage = ({ data }, location) => {
             For other projects, I've used the Hugo Static Site Generator, but
             this website is created using Gatsby, which works more as a
             progressive web app.
+            <img
+              src={
+                "https://www.gatsbyjs.com/static/9a172caa0d7bafa251ede1162087bded/8f6f3/home-page_fast-to-build.jpg"
+              }
+            />
           </p>
 
           <p>
@@ -86,6 +106,51 @@ const AboutPage = ({ data }, location) => {
             exercise (especially running) physiology/nutrition, politics, social
             justice issues, sleep, memory, anatomical variation, open source,
             and art techniques.{" "}
+          </p>
+          <p>
+            {" "}
+            Art, be it illustration, photography, design, is an awesome field
+            that lets me combine my interests in science and the humanities. I
+            love that there is always something new to learn and experiment
+            with. It's a relaxing activity that allows me to express myself.
+            I've also been able to implement my artwork in my small business,
+            which is a website about art resources and tutorials. It also has a
+            strong community of artists, and we learn with each other.
+            <a href="https://kalispera.xyz/portfolio/">
+              {" "}
+              <img src={" https://i.imgur.com/H1h0xIN.jpg"} />
+            </a>
+            Click on the image preview for more artwork.{" "}
+          </p>
+
+          <h3 id="dynamic-styles"> Running</h3>
+          <p>
+            Running will always be a favorite activity, as it is a healthy
+            outlet for stress, a time to think, a time to have great
+            conversations with friends, as well as to stay in shape.{" "}
+          </p>
+
+          <p>
+            This sport also allows me to always have a new goal. I've achieved a
+            few milestones in my journey in running: 5K, half marathon, and the
+            full marathon I ran in Chicago for the awesome charity, St. Jude.
+            With the help of so many others, we raised over $1,800 to advance
+            children's cancer research.{" "}
+          </p>
+          <img
+            src={
+              "https://scontent.fcps1-1.fna.fbcdn.net/v/t1.0-9/72882811_10215566762667806_208745310485217280_o.jpg?_nc_cat=107&_nc_sid=8bfeb9&_nc_ohc=OakEN5I-tCcAX-8hYlZ&_nc_ht=scontent.fcps1-1.fna&oh=dd4c58bc7af66ea74c3665c8f9a5c9d7&oe=5F7C67C3"
+            }
+          />
+
+          <h3 id="dynamic-styles"> Coffee</h3>
+          <p>
+            This human is powered by coffee and naps.
+            <img
+              src={
+                " https://images.unsplash.com/photo-1497515114629-f71d768fd07c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1662&q=80"
+              }
+            />{" "}
           </p>
         </div>
       </article>

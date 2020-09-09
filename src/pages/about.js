@@ -42,7 +42,7 @@ const AboutPage = ({ data }, location) => {
           <p>
             {" "}
             I was adopted from China, and I know that my life could have played
-            out quite differently nad I want to pay it forward to people who
+            out quite differently and I want to pay it forward to people who
             might not have had the same chance as I did.{" "}
           </p>
 

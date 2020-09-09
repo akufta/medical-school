@@ -1,7 +1,7 @@
 ---
 title: Cat
 date: 2019-05-04T05:00:00Z
-thumbnail: "./share-9807.jpg"
+thumbnail: "./uploads/share-9807.jpg"
 description: Annie
 
 ---

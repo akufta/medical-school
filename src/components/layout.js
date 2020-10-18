@@ -33,7 +33,7 @@ const Layout = props => {
                 <Link to={`/about`}>About</Link>
               </li>
               <li className="nav-elements" role="menuitem">
-                <Link to={`/elements`}>Elements</Link>
+                <Link to={`/art`}>Art</Link>
               </li>
             </ul>
           </nav>
@@ -58,7 +58,7 @@ const Layout = props => {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Twitter
+                LinkedIn
               </a>
               <Link
                 to={`/rss.xml`}
